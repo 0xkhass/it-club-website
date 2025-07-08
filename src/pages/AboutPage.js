@@ -30,6 +30,14 @@ function AboutPage() {
             icon: 'fa-laptop-code'
         },
         {
+            name: 'Mohammed Abughoush',
+            role: 'Member',
+            linkedin: 'https://www.linkedin.com/',
+            github: 'https://github.com/',
+            portfolio: 'https://github.com/',
+            icon: 'fa-laptop-code'
+        },
+        {
             name: 'Mohammad Nadal',
             role: 'Member',
             linkedin: 'https://www.linkedin.com/',
