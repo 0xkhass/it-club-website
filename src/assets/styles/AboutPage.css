@@ -2,55 +2,68 @@
 .about {
     background-color: #181818;  /* Dark background */
     color: #ddd;  /* Lighter text for contrast */
-    padding: 50px 20px;
+    padding: 40px 15px;  /* Mobile-first padding */
     text-align: center;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    min-height: 100vh;
 }
 
 .about h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;  /* Mobile-first font size */
     font-family: 'Roboto', sans-serif;
     color: #00bcd4;  /* Accent color */
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     animation: fadeIn 1s ease-out;
+    line-height: 1.2;
 }
 
 .about p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;  /* Mobile-first font size */
     margin-bottom: 30px;
     color: #bbb;  /* Light text for readability */
     line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;  /* Mobile-first font size */
     color: #00bcd4;  /* Accent color */
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 20px;
+    line-height: 1.2;
 }
 
-/* Team Members */
+/* Team Members - Mobile First */
 .team-members {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 40px;
+    grid-template-columns: 1fr;  /* Mobile: 1 column */
+    gap: 24px;  /* Better mobile spacing */
     justify-items: center;
     margin-top: 30px;
     animation: fadeIn 1.5s ease-out;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .team-member {
     background-color: #262626;  /* Dark card background */
-    padding: 30px;
+    padding: 24px;  /* Mobile-friendly padding */
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     text-align: center;
     width: 100%;
-    max-width: 350px;
+    max-width: 320px;  /* Better mobile max-width */
     position: relative;
     overflow: hidden;
     transform: scale(1);
+    min-height: 280px;  /* Consistent card height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .team-member:hover {
@@ -59,32 +72,35 @@
 }
 
 .team-icon {
-    font-size: 4rem;
+    font-size: 3.5rem;  /* Slightly smaller for mobile */
     color: #00bcd4;  /* Accent color */
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     transition: color 0.3s ease-in-out;
 }
 
 .team-member h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;  /* Mobile-optimized font size */
     color: #ddd;  /* Light text color */
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-weight: 500;
+    line-height: 1.3;
 }
 
 .team-member p {
-    font-size: 1.1rem;
+    font-size: 1rem;  /* Mobile-optimized font size */
     color: #bbb;  /* Lighter text */
+    margin-bottom: 16px;
 }
 
-/* Add profile icons with hover effect */
+/* Touch-friendly social icons */
 .team-socials {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 16px;  /* Better mobile spacing */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    margin-top: auto;  /* Push to bottom of card */
 }
 
 .team-member:hover .team-socials {
@@ -92,15 +108,28 @@
     transform: translateY(0);
 }
 
-/* Social Icon Styles */
+/* Mobile-friendly social icons with 44px touch targets */
 .team-socials a {
     color: #00bcd4;  /* Accent color */
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
+    font-size: 1.8rem;  /* Larger icons for mobile */
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 8px;  /* Touch padding to reach 44px target */
+    border-radius: 8px;
+    min-width: 44px;  /* Minimum touch target */
+    min-height: 44px;  /* Minimum touch target */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 188, 212, 0.1);
+    border: 1px solid transparent;
 }
 
-.team-socials a:hover {
-    color: #fff;  /* On hover, make icon white */
+.team-socials a:hover,
+.team-socials a:focus {
+    color: #fff;  /* On hover/focus, make icon white */
+    background-color: rgba(0, 188, 212, 0.2);
+    border-color: #00bcd4;
+    transform: translateY(-2px);
 }
 
 /* Fade-in animation */
@@ -115,32 +144,100 @@
     }
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
+/* Tablet breakpoint - 2 columns */
+@media (min-width: 600px) {
     .about {
-        padding: 30px 15px;
+        padding: 50px 20px;
     }
-
+    
     .about h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
-
+    
     .about h2 {
-        font-size: 2rem;
+        font-size: 2.3rem;
     }
-
+    
+    .about p {
+        font-size: 1.2rem;
+    }
+    
     .team-members {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .team-member {
+        padding: 28px;
+        max-width: 350px;
+    }
+    
+    .team-icon {
+        font-size: 4rem;
+    }
+    
+    .team-member h3 {
+        font-size: 1.4rem;
+    }
+    
+    .team-member p {
+        font-size: 1.1rem;
+    }
+    
+    .team-socials {
+        gap: 18px;
     }
 }
 
-@media (max-width: 500px) {
-    .team-members {
-        grid-template-columns: 1fr;
+/* Desktop breakpoint - 3+ columns */
+@media (min-width: 900px) {
+    .about {
+        padding: 60px 30px;
     }
-
+    
+    .about h1 {
+        font-size: 3rem;
+    }
+    
+    .about h2 {
+        font-size: 2.5rem;
+        margin-top: 50px;
+    }
+    
+    .team-members {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 40px;
+    }
+    
     .team-member {
-        padding: 20px;
-        width: 80%;
+        padding: 30px;
+        max-width: 350px;
+        min-height: 320px;
+    }
+    
+    .team-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+    }
+    
+    .team-member h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .team-socials {
+        gap: 20px;
+    }
+}
+
+/* Large desktop optimization */
+@media (min-width: 1200px) {
+    .about {
+        padding: 80px 40px;
+    }
+    
+    .team-members {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 50px;
     }
 }
